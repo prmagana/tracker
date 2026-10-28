@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-product-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Quiet neutral text selection instead of the browser's blue. Tracks the theme. */
+::selection {
+  background: color-mix(in srgb, var(--foreground) 12%, transparent);
+  color: inherit;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-product-sans), -apple-system, system-ui, sans-serif;
+  /* Fragment turns ligatures off for this face; keeps letter pairs like "fi" plain. */
+  font-variant-ligatures: none;
+}
