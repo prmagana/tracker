@@ -1,7 +1,7 @@
 import TonConnect, { isWalletInfoRemote, type WalletInfo } from "@tonconnect/sdk";
 
-// Fetched by the wallet app, so it must be the public prod URL even in dev.
-const MANIFEST_URL = "https://track.tapt.so/tonconnect-manifest.json";
+// Root's manifest, shared by every tool: the wallet sees one app, tapt at tapt.so, wherever you connect from.
+const MANIFEST_URL = "https://tapt.so/tonconnect-manifest.json";
 
 // Curated routes by registry app_name, in display order. Everything else goes through the generic QR.
 export const WALLET_APP_NAMES = ["gramwallet", "tonkeeper"] as const;
