@@ -14,6 +14,12 @@
       "database_name": "tracker",
       "database_id": "e0766c23-39e5-4f76-8766-784d1a2ce3ad",
       "migrations_dir": "migrations"
+    },
+    // Shared accounts table. Root (prmagana/root) owns the schema and applies its migrations.
+    {
+      "binding": "ACCOUNTS",
+      "database_name": "accounts",
+      "database_id": "b3577be4-f7b8-4bdb-9cec-81e4e4af3841"
     }
   ],
   "assets": {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AccountChip } from "@/components/account-chip";
 import { WalletButton } from "@/components/wallet-button";
 import { currentUserId } from "@/lib/auth";
-import { db } from "@/lib/db";
+import { accounts } from "@/lib/db";
 
 type UserRow = { name: string | null; picture: string | null; wallet_address: string | null };
 
@@ -10,7 +10,7 @@ type UserRow = { name: string | null; picture: string | null; wallet_address: st
 export async function Nav() {
   const userId = await currentUserId();
   const user = userId
-    ? await (await db())
+    ? await (await accounts())
         .prepare("SELECT name, picture, wallet_address FROM users WHERE id = ?1")
         .bind(userId)
         .first<UserRow>()

@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { db } from "@/lib/db";
+import { accounts } from "@/lib/db";
 import { env } from "@/lib/env";
 import { OIDC_COOKIE, clearCookie, createSession, sessionCookie } from "@/lib/session";
 import { escapeHtml, notify } from "@/lib/telegram-notify";
@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
   // Anyone with Telegram can sign in. First login creates the row, later ones refresh it.
   // is_new falls out of the upsert: only a fresh insert has created_at equal to last_login_at.
   const now = new Date().toISOString();
-  const row = await (await db())
+  const row = await (await accounts())
     .prepare(
       `INSERT INTO users (id, name, picture, created_at, last_login_at) VALUES (?1, ?2, ?3, ?4, ?4)
        ON CONFLICT(id) DO UPDATE SET name = excluded.name, picture = excluded.picture, last_login_at = excluded.last_login_at

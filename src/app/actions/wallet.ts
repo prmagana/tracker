@@ -1,7 +1,7 @@
 "use server";
 
 import { currentUserId } from "@/lib/auth";
-import { db } from "@/lib/db";
+import { accounts } from "@/lib/db";
 
 // User-friendly TON addresses are 48 chars of base64url.
 const ADDRESS = /^[A-Za-z0-9_-]{48}$/;
@@ -12,7 +12,7 @@ export async function saveWalletAddress(address: string | null): Promise<void> {
   if (!userId) return;
   if (address !== null && !ADDRESS.test(address)) return;
 
-  await (await db())
+  await (await accounts())
     .prepare("UPDATE users SET wallet_address = ?1 WHERE id = ?2")
     .bind(address, userId)
     .run();
