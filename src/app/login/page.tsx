@@ -1,5 +1,8 @@
 import { TelegramButton } from "@/components/telegram-button";
 
+// Root runs the Telegram flow for every tool and sends people back here afterwards.
+const LOGIN_URL = `https://tapt.so/api/auth/login?return=${encodeURIComponent("https://track.tapt.so/")}`;
+
 export default function LoginPage() {
   return (
     <main className="flex flex-1 items-center justify-center px-6 py-16">
@@ -9,7 +12,7 @@ export default function LoginPage() {
           <p className="text-[22px] leading-tight text-foreground/40">Sign in to continue</p>
         </div>
 
-        <TelegramButton href="/api/auth/login" />
+        <TelegramButton href={LOGIN_URL} />
       </div>
     </main>
   );

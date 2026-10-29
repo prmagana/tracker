@@ -15,7 +15,6 @@
     "@opennextjs/cloudflare": "^1.20.13",
     "@tonconnect/sdk": "^5.0.0",
     "framer-motion": "^14.7.1",
-    "jose": "^6.2.13",
     "lucide-react": "^1.62.0",
     "next": "16.4.3",
     "qrcode": "^1.5.4",
