@@ -11,13 +11,6 @@
   --font-sans: var(--font-product-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 /* Quiet neutral text selection instead of the browser's blue. Tracks the theme. */
 ::selection {
   background: color-mix(in srgb, var(--foreground) 12%, transparent);
