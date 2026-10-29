@@ -7,10 +7,6 @@
   "routes": [{ "pattern": "track.tapt.so", "custom_domain": true }],
   "compatibility_date": "2026-10-27",
   "compatibility_flags": ["nodejs_compat"],
-  // Public config. Secrets go in via `wrangler secret put`.
-  "vars": {
-    "TELEGRAM_CLIENT_ID": "9249238407"
-  },
   "upload_source_maps": true,
   "d1_databases": [
     {
